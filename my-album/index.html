@@ -10,11 +10,15 @@
     <p>나의 첫 웹페이지 입니다</p>
     <p>git에 올립겁니다</p>
 
-    <button onclick="alert('등장!')">눌러줭</button>
+    <input type="text" id="gtg" placeholder="이름을 입력하라!">
+    <button onclick="msgOn()">눌러줭</button>
+    <p id="output"></p>
     
     <script>
-      console.log("웹페이지 로딩됨")
-      alert("Hi")
+      function msgOn() {
+        const name = document.getElementById('gtg').value
+        document.getElementById('output').innerText = `hi, ${name}!`
+      }
     </script>
   
 </body>
