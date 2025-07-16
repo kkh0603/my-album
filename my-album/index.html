@@ -4,12 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>나의 엘범 웹 페이지</title>
+  <style>
+    .done {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
 </head>
 <body>
-  <div style="background-color: rgb(123, 219, 94);">
-  </div>
+  <h2> 할 일 체크리스트 </h2>
+  <input id="todoInput" type="text" placeholder="할 일을 입력하시오">
+  <button onclick="addTodo()">추가</button>
+  <p>완료한 일 : <span id="doneCount">0</span>개</p>
+  <ul id="todoList"></ul>
+
+
 
   <script>
+    let doneCount = 0
+
+    function addTodo () {
+
+      // 입력한것 text로 감는 작업
+      const input = document.getElementById('todoInput')
+      const text = input.value.trim()
+      if (!text) return
+
+      //리스트 요소 생성
+      const li = document.createElement('li')
+
+      //체크박스
+      const checkBox = document.createElement('input')
+      checkBox.type = 'checkbox'
+      checkBox.onchange = function () {
+        if (checkBox.checked) {
+          li.classList.add('done')
+          doneCount++
+        } else {
+          li.classList.remove('done')
+          doneCount--
+        }
+        document.getElementById('doneCount').innerText = doneCount
+      }
+
+      const span = document.createElement('span')
+      span.innerText = text
+
+      const delBtn = document.createElement('button')
+      delBtn.innerText = 'Delete'
+      delBtn.onclick = function () {
+        if(checkBox.checked) {
+          doneCount--
+          document.getElementById('doneCount').innerText = doneCount
+        }
+        li.remove()
+      }
+
+      li.appendChild(checkBox)
+      li.appendChild(span)
+      li.appendChild(delBtn)
+      document.getElementById('todoList').appendChild(li)
+
+    }
+
+
+
 
   </script>
   
