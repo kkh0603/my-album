@@ -7,11 +7,64 @@
 </head>
 <body>
   <div style="background-color: rgb(123, 219, 94);">
+    <input type="text" id="todoInput" placeholder="할 일 입력">
+    <button onclick="addTodo()">추가</button>
+    <ul id="todoList"></ul>
   </div>
 
   <script>
+    function addTodo() {
+      const inputVal = document.getElementById('todoInput')
+      const inputText = inputVal.value.trim()
+      if (!Text) return
+
+      const listTag = document.createElement('li')
+      listTag.innerText = inputText
+
+      const delBtn = document.createElement('button')
+      delBtn.innerText = '삭제'
+      delBtn.onclick = function () {
+        listTag.remove()
+      }
+      listTag.appendChild(delBtn)
+      document.getElementById('todoList').appendChild(listTag)
+    }
 
   </script>
-  
+
+    <!-- <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+    <button onclick="addTodo()">추가</button>
+    <ul id="todoList"></ul>
+
+    <script> 
+       function addTodo() {
+        const input = document.getElementById('todoInput')
+        const text = input.value.trim()
+
+        // 입력이 없으면 추가하지 않음
+        if (!text) return
+
+        // <li> 요소 만들기
+        const li = document.createElement('li')
+        li.innerText = text
+
+        // 삭제 버튼 만들기
+        const delBtn = document.createElement('button')
+        delBtn.innerText = '❌ 삭제'
+        delBtn.onclick = function () {
+          li.remove() // 클릭 시 li 삭제
+        }
+
+        // li에 버튼 추가 → 리스트에 추가
+        li.appendChild(delBtn)
+        document.getElementById('todoList').appendChild(li)
+
+        // 입력창 비우기
+        input.value = ''
+    }
+  </script> -->
+
+
+
 </body>
 </html>
