@@ -8,10 +8,42 @@
 <body>
   <div style="background-color: rgb(123, 219, 94);">
   </div>
-
+  <button onclick="showList()">보여줘!</button>
+  <ul id="listContents"></ul>
+  
   <script>
+    function showList () {
+      const listArr = ['람보로기나', '페라리', '파가니', '부가티', '밴틀리', '롤스로이스', '맥라렌']
+      let sumHtml = ''
 
+      for (let i = 0; i < listArr.length; i++) {
+        sumHtml += `<li>${listArr[i]}</li>`
+      }
+
+      document.getElementById('listContents').innerHTML = sumHtml
+
+    }
+
+    
   </script>
   
+
+  <!-- <button onclick="showFruits()">과일 보여줘!</button>
+  <ul id="fruitList"></ul>
+
+  <script>
+    function showFruits() {
+      const fruits = ['🍎 사과', '🍌 바나나', '🍇 포도', '🍍 파인애플']
+      let html = ''
+
+      for (let i = 0; i < fruits.length; i++) {
+        html += `<li>${fruits[i]}</li>`
+      }
+
+      document.getElementById('fruitList').innerHTML = html
+    }
+  </script> -->
+
+
 </body>
 </html>
