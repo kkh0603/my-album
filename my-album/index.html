@@ -6,28 +6,10 @@
   <title>나의 엘범 웹 페이지</title>
 </head>
 <body>
-  <div style="background-color: black;">
-    <input type="number" id="ageInput" placeholder="나이를 입력하라">
-    <button onclick="checkAge()">Check</button>
-    <p id="result" style="color: wheat;"></p>
+  <div style="background-color: rgb(123, 219, 94);">
   </div>
 
   <script>
-    function checkAge () {
-      const age = Number(document.getElementById('ageInput').value)
-      let message = ''
-
-      if (age < 13) {
-        message = '어린이입니다'
-      } else if (age < 20) {
-        message = '청소년입니다'
-      } else {
-        message = '성인입니다'
-      }
-
-      document.getElementById('result').innerText = message
-
-    }
 
   </script>
   
